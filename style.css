@@ -311,6 +311,14 @@ body {
   color: #64748b;
   line-height: 1.5;
   margin-bottom: 24px;
+  white-space: pre-line;
+}
+
+.suggested-by {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0 0 16px;
 }
 
 .card-footer {
@@ -348,7 +356,8 @@ body {
   color: #94a3b8;
 }
 
-.goal-check:checked + .goal-card .card-desc {
+.goal-check:checked + .goal-card .card-desc,
+.goal-check:checked + .goal-card .suggested-by {
   color: #94a3b8;
 }
 
