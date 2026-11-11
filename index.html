@@ -21,6 +21,52 @@
   </nav>
 </header>
 
+<section id="suggest" class="suggest-card">
+  <h2 class="suggest-title">Suggest a New Goal</h2>
+  <p class="suggest-subtitle">
+    Know an extraordinary challenge, destination, or book? Leave your suggestion below!
+  </p>
+
+  <form class="suggest-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="user-name">Your Name</label>
+        <input
+          type="text"
+          id="user-name"
+          name="user-name"
+          placeholder="e.g. Alex"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="goal-category">Category</label>
+        <div class="select-wrapper">
+          <select id="goal-category" name="goal-category">
+            <option value="travel">Travel & Adventure</option>
+            <option value="career">Learning & Career</option>
+            <option value="fitness">Health & Fitness</option>
+            <option value="experiences">Experiences</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group full-width">
+      <label for="goal-details">Goal Title & Details</label>
+      <textarea
+        id="goal-details"
+        name="goal-details"
+        rows="4"
+        placeholder="Describe the adventure or milestone..."
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Add to Suggestion Box</button>
+  </form>
+</section>
 
 <section class="hero-section">
   
@@ -170,52 +216,6 @@
     </div>
 
   </div>
-</section>
-<section id="suggest" class="suggest-card">
-  <h2 class="suggest-title">Suggest a New Goal</h2>
-  <p class="suggest-subtitle">
-    Know an extraordinary challenge, destination, or book? Leave your suggestion below!
-  </p>
-
-  <form class="suggest-form">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="user-name">Your Name</label>
-        <input
-          type="text"
-          id="user-name"
-          name="user-name"
-          placeholder="e.g. Alex"
-          required
-        >
-      </div>
-
-      <div class="form-group">
-        <label for="goal-category">Category</label>
-        <div class="select-wrapper">
-          <select id="goal-category" name="goal-category">
-            <option value="travel">Travel & Adventure</option>
-            <option value="career">Learning & Career</option>
-            <option value="fitness">Health & Fitness</option>
-            <option value="experiences">Experiences</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group full-width">
-      <label for="goal-details">Goal Title & Details</label>
-      <textarea
-        id="goal-details"
-        name="goal-details"
-        rows="4"
-        placeholder="Describe the adventure or milestone..."
-        required
-      ></textarea>
-    </div>
-
-    <button type="submit" class="submit-btn">Add to Suggestion Box</button>
-  </form>
 </section>
 
 <hr class="footer-divider">
