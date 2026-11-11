@@ -509,3 +509,91 @@ body {
     gap: 18px;
   }
 }
+
+.navbar {
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+body.is-locked #suggest,
+body.is-locked #stats,
+body.is-locked #milestones,
+body.is-locked .tip-banner {
+  display: none;
+}
+
+body:not(.is-locked) #account-gate {
+  display: none;
+}
+
+.account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.account-status {
+  min-height: 1.2em;
+  color: #475569;
+  font-weight: 600;
+}
+
+.account-error {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.account-error[hidden] {
+  display: none;
+}
+
+.submit-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.submit-btn-secondary {
+  background-color: #ffffff;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+}
+
+.submit-btn-secondary:hover {
+  background-color: #eff6ff;
+}
+
+.nav-session {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0f172a;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.nav-session[hidden] {
+  display: none !important;
+}
+
+.session-label {
+  max-width: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sign-out-btn {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sign-out-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}

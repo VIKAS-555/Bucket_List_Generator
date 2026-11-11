@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="is-locked">
     <!-- Navigation Bar -->
 <header class="navbar-wrapper">
   <nav class="navbar">
@@ -18,8 +18,52 @@
       <li><a href="#milestones">Milestones</a></li>
       <li><a href="#suggest">Suggest Goal</a></li>
     </ul>
+    <div class="nav-session" id="nav-session" hidden>
+      <span class="session-label">Signed in as <span id="session-user"></span></span>
+      <button type="button" class="sign-out-btn" id="sign-out-btn">Sign out</button>
+    </div>
   </nav>
 </header>
+
+<section id="account-gate" class="suggest-card account-gate">
+  <h2 class="suggest-title">Sign in to your list</h2>
+  <p class="suggest-subtitle">
+    Create an account or sign in with a username and a secret passcode.
+    Each account has its own encrypted list on this browser, and a wrong passcode cannot open it.
+  </p>
+  <form id="account-form" class="suggest-form">
+    <div class="form-group">
+      <label for="account-username">Username</label>
+      <input
+        type="text"
+        id="account-username"
+        name="username"
+        autocomplete="username"
+        spellcheck="false"
+        maxlength="64"
+        placeholder="e.g. alex"
+        required
+      >
+    </div>
+    <div class="form-group">
+      <label for="account-passcode">Secret passcode</label>
+      <input
+        type="password"
+        id="account-passcode"
+        name="passcode"
+        autocomplete="current-password"
+        placeholder="A secret only you know"
+        required
+      >
+    </div>
+    <p id="account-status" class="account-status" role="status"></p>
+    <p id="account-error" class="account-error" role="alert" hidden></p>
+    <div class="account-actions">
+      <button type="submit" class="submit-btn" id="sign-in-btn">Sign in</button>
+      <button type="button" class="submit-btn submit-btn-secondary" id="create-account-btn">Create account</button>
+    </div>
+  </form>
+</section>
 
 <section id="suggest" class="suggest-card">
   <h2 class="suggest-title">Suggest a New Goal</h2>
@@ -127,6 +171,7 @@
     <h2>Life Milestones</h2>
     <span class="click-hint">Click to toggle completion</span>
   </div>
+  <p id="save-error" class="account-error" role="alert" hidden></p>
 
   
   <div class="milestones-grid">
@@ -222,145 +267,7 @@
 <footer class="site-footer">
   <p>&bull; Built with pure HTML5 &amp; CSS3 &bull;</p>
 </footer>
-<script>
-(function () {
-  var form = document.querySelector(".suggest-form");
-  var grid = document.querySelector(".milestones-grid");
-  if (!form || !grid) return;
+<script src="vault.js"></script>
 
-  var categories = {
-    travel: { tag: "tag-travel", label: "Travel & Adventure" },
-    career: { tag: "tag-career", label: "Learning & Career" },
-    fitness: { tag: "tag-fitness", label: "Health & Fitness" },
-    experiences: { tag: "tag-experiences", label: "Experiences" }
-  };
-
-  function nextGoalId() {
-    var max = 0;
-    grid.querySelectorAll(".goal-check").forEach(function (input) {
-      var match = /^goal-(\d+)$/.exec(input.id);
-      if (match) max = Math.max(max, Number(match[1]));
-    });
-    return "goal-" + (max + 1);
-  }
-
-  function parseGoal(text) {
-    var lines = text.replace(/\r\n/g, "\n").split("\n");
-    var title = "";
-    var index = 0;
-    while (index < lines.length && !lines[index].trim()) index += 1;
-    if (index < lines.length) title = lines[index].trim();
-    var description = lines.slice(index + 1).join("\n").trim();
-    return { title: title, description: description };
-  }
-
-  function refreshProgress() {
-    var checks = grid.querySelectorAll(".goal-check");
-    var total = checks.length;
-    var completed = 0;
-    var categorySet = {};
-
-    checks.forEach(function (input) {
-      if (input.checked) completed += 1;
-      var tag = input.parentElement && input.parentElement.querySelector(".category-tag");
-      if (!tag) return;
-      tag.className.split(/\s+/).forEach(function (cls) {
-        if (cls.indexOf("tag-") === 0) categorySet[cls] = true;
-      });
-    });
-
-    var pending = total - completed;
-    var percent = total === 0 ? 0 : Math.round((completed / total) * 100);
-    var summary = document.querySelector(".milestone-acheived");
-    var fill = document.querySelector(".progress-bar-fill");
-    var stats = document.querySelectorAll(".milestone-stats .stat-val");
-
-    if (summary) {
-      summary.textContent = completed + " of " + total + " acheived (" + percent + "%)";
-    }
-    if (fill) fill.style.width = percent + "%";
-    if (stats.length >= 4) {
-      stats[0].textContent = String(total);
-      stats[1].textContent = String(completed);
-      stats[2].textContent = String(pending);
-      stats[3].textContent = String(Object.keys(categorySet).length);
-    }
-  }
-
-  function addCard(name, categoryKey, details) {
-    var parsed = parseGoal(details);
-    if (!parsed.title) return false;
-
-    var category = categories[categoryKey] || categories.experiences;
-    var id = nextGoalId();
-    var wrapper = document.createElement("div");
-    wrapper.className = "card-wrapper";
-
-    var input = document.createElement("input");
-    input.type = "checkbox";
-    input.id = id;
-    input.className = "goal-check";
-
-    var label = document.createElement("label");
-    label.className = "goal-card";
-    label.htmlFor = id;
-
-    var tag = document.createElement("span");
-    tag.className = "category-tag " + category.tag;
-    tag.textContent = category.label;
-    label.appendChild(tag);
-
-    var title = document.createElement("h3");
-    title.className = "card-title";
-    title.textContent = parsed.title;
-    label.appendChild(title);
-
-    if (parsed.description) {
-      var desc = document.createElement("p");
-      desc.className = "card-desc";
-      desc.textContent = parsed.description;
-      label.appendChild(desc);
-    }
-
-    if (name) {
-      var byline = document.createElement("p");
-      byline.className = "suggested-by";
-      byline.textContent = "Suggested by " + name;
-      label.appendChild(byline);
-    }
-
-    var footer = document.createElement("div");
-    footer.className = "card-footer";
-    var status = document.createElement("span");
-    status.className = "status-text";
-    var box = document.createElement("div");
-    box.className = "checkbox-visual";
-    footer.appendChild(status);
-    footer.appendChild(box);
-    label.appendChild(footer);
-
-    wrapper.appendChild(input);
-    wrapper.appendChild(label);
-    grid.appendChild(wrapper);
-    refreshProgress();
-    wrapper.scrollIntoView({ block: "nearest" });
-    return true;
-  }
-
-  grid.addEventListener("change", function (event) {
-    if (event.target.classList.contains("goal-check")) refreshProgress();
-  });
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    var name = form.elements["user-name"].value.trim();
-    var category = form.elements["goal-category"].value;
-    var details = form.elements["goal-details"].value.trim();
-    if (addCard(name, category, details)) form.reset();
-  });
-
-  refreshProgress();
-})();
-</script>
 </body>
 </html>
