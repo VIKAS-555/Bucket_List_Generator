@@ -1,24 +1,142 @@
-.navbar{
-    position:sticky;
-    top:5%;
-    display:flex;
-    justify-content: space-between;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.info{
-    display:flex;
-    gap:30px;
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
 }
-.name{
-    font-weight: bold;
-    font-size: larger;
-    align-items:center;
+
+
+.navbar-wrapper {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-.hero{
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    margin-top: 40px;
+
+.navbar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2563eb; 
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.sparkle {
+  font-size: 1.1rem;
+  color: #3b82f6;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  transition: color 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+
+.hero-section {
+  background-color: #f3f7fc; 
+  padding: 70px 20px 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.hero-pill {
+  display: inline-block;
+  background-color: #dbeafe; 
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #0b1329;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #64748b;
+  max-width: 650px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+
+.tip-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 1.5px dashed #3b82f6;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #2563eb;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.bulb-icon {
+  font-size: 1.1rem;
+}
+
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
 }
 .milestone-card{
     max-width:850px;
@@ -105,7 +223,7 @@
   border-radius: 999px;
 }
 
-/* --- Outer Container --- */
+
 .milestones-section {
   max-width: 950px;
   margin: 40px auto;
@@ -113,7 +231,7 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* --- Section Top Header --- */
+
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -132,7 +250,7 @@
   color: #64748b;
 }
 
-/* --- 2-Column Responsive Grid --- */
+
 .milestones-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -141,16 +259,14 @@
 
 @media (max-width: 700px) {
   .milestones-grid {
-    grid-template-columns: 1fr; /* 1 column on mobile */
+    grid-template-columns: 1fr; 
   }
 }
 
-/* --- Hide the Real Native Checkbox --- */
 .goal-check {
   display: none;
 }
 
-/* --- The Card Label --- */
 .goal-card {
   display: flex;
   flex-direction: column;
@@ -168,7 +284,6 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 }
 
-/* --- Category Tags --- */
 .category-tag {
   align-self: flex-start;
   font-size: 0.8rem;
@@ -178,12 +293,11 @@
   margin-bottom: 16px;
 }
 
-.tag-career { background-color: #e0e7ff; color: #4338ca; }       /* Light purple */
-.tag-fitness { background-color: #fef3c7; color: #b45309; }      /* Light amber/orange */
-.tag-travel { background-color: #e0f2fe; color: #0369a1; }       /* Light sky blue */
-.tag-experiences { background-color: #f3e8ff; color: #7e22ce; }  /* Light lavender */
+.tag-career { background-color: #e0e7ff; color: #4338ca; }       
+.tag-fitness { background-color: #fef3c7; color: #b45309; }      
+.tag-travel { background-color: #e0f2fe; color: #0369a1; }       
+.tag-experiences { background-color: #f3e8ff; color: #7e22ce; }   
 
-/* --- Card Text --- */
 .card-title {
   font-size: 1.15rem;
   font-weight: 700;
@@ -199,7 +313,6 @@
   margin-bottom: 24px;
 }
 
-/* --- Footer Row --- */
 .card-footer {
   margin-top: auto;
   display: flex;
@@ -207,7 +320,6 @@
   align-items: center;
 }
 
-/* Default (Unchecked) Status Text */
 .status-text::before {
   content: "In Progress";
   font-size: 0.9rem;
@@ -215,7 +327,6 @@
   color: #94a3b8;
 }
 
-/* Default (Unchecked) Box */
 .checkbox-visual {
   width: 22px;
   height: 22px;
@@ -227,16 +338,11 @@
   transition: all 0.2s ease;
 }
 
-/* =======================================================
-   INTERACTIVE MAGIC: WHEN CHECKBOX IS CHECKED
-======================================================= */
 
-/* 1. Green card border & subtle dim */
 .goal-check:checked + .goal-card {
   border-color: #16a34a;
 }
 
-/* 2. Line through the title & muted text */
 .goal-check:checked + .goal-card .card-title {
   text-decoration: line-through;
   color: #94a3b8;
@@ -246,13 +352,11 @@
   color: #94a3b8;
 }
 
-/* 3. Status text becomes green 'Completed ✓' */
 .goal-check:checked + .goal-card .status-text::before {
   content: "Completed ✓";
   color: #16a34a;
 }
 
-/* 4. Checkbox turns solid green with a white checkmark */
 .goal-check:checked + .goal-card .checkbox-visual {
   background-color: #16a34a;
   border-color: #16a34a;
