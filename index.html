@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div><p class="name">My Life Ledger</p></div>
+        <div class="info"><p class="progress">Progress</p>
+            <p class="progress">Milestones</p>
+            <p class="progress">Suggest goals</p>
+        </div>
+    </nav>
+    <section class="hero">
+        <p>Personal horizons</p>
+        <h1>My Life Bucket List</h1>
+        <p>A living registry of places to explore, skills to conquer, and meaningful life ambitions.</p>
+    </section>
+
+    <section class="milestone-card">
+        <div class="milestone-header"><h2 class="milestone-title">Overall Milestone Completion</h2>
+        <span class="milestone-acheived">4 of 10 acheived (40%)</span></div>
+
+        <div class="progress-bar-track">
+            <div class="progress-bar-fill" style="width:40%;"></div>
+        </div>
+
+        <hr class="milestone-divider">
+
+        <div class="milestone-stats">
+            <div class="stat-col">
+                <span class="stat-val stat-dark">10</span>
+                <span class="stat-lbl">TOTAL GOALS</span>
+            </div>
+
+            <div class="stat-col">
+      <span class="stat-val stat-green">4</span>
+      <span class="stat-lbl">COMPLETED</span>
+    </div>
+
+    <div class="stat-col">
+      <span class="stat-val stat-blue">6</span>
+      <span class="stat-lbl">PENDING</span>
+    </div>
+
+        <div class="stat-col">
+      <span class="stat-val stat-dark">4</span>
+      <span class="stat-lbl">CATEGORIES</span>
+    </div>
+
+</div>
+        
+    </section>
+
+    <section class="milestones-section">
+  <!-- Section Title & Hint -->
+  <div class="section-header">
+    <h2>Life Milestones</h2>
+    <span class="click-hint">Click to toggle completion</span>
+  </div>
+
+  <!-- The 2-Column Grid -->
+  <div class="milestones-grid">
+
+    <!-- Card 1: Completed by default -->
+    <div class="card-wrapper">
+      <input type="checkbox" id="goal-1" class="goal-check" checked>
+      <label for="goal-1" class="goal-card">
+        <span class="category-tag tag-career">Learning & Career</span>
+        <h3 class="card-title">Code a website with pure HTML & CSS</h3>
+        <p class="card-desc">Design and structure an entire responsive web project without JavaScript frameworks.</p>
+        <div class="card-footer">
+          <span class="status-text"></span>
+          <div class="checkbox-visual"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Card 2: Completed by default -->
+    <div class="card-wrapper">
+      <input type="checkbox" id="goal-2" class="goal-check" checked>
+      <label for="goal-2" class="goal-card">
+        <span class="category-tag tag-fitness">Health & Fitness</span>
+        <h3 class="card-title">Run a 5K road race</h3>
+        <p class="card-desc">Complete a 5-kilometer morning running event with zero walking intervals.</p>
+        <div class="card-footer">
+          <span class="status-text"></span>
+          <div class="checkbox-visual"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Card 3: Completed by default -->
+    <div class="card-wrapper">
+      <input type="checkbox" id="goal-3" class="goal-check" checked>
+      <label for="goal-3" class="goal-card">
+        <span class="category-tag tag-travel">Travel</span>
+        <h3 class="card-title">Solo mountain ridge trek</h3>
+        <p class="card-desc">Hike and camp in the Western Ghats with a self-sufficient backpack setup.</p>
+        <div class="card-footer">
+          <span class="status-text"></span>
+          <div class="checkbox-visual"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Card 4: Completed by default -->
+    <div class="card-wrapper">
+      <input type="checkbox" id="goal-4" class="goal-check" checked>
+      <label for="goal-4" class="goal-card">
+        <span class="category-tag tag-experiences">Experiences</span>
+        <h3 class="card-title">Build a custom mechanical keyboard</h3>
+        <p class="card-desc">Select switches, solder diodes, lubricate stabilizers, and assemble from parts.</p>
+        <div class="card-footer">
+          <span class="status-text"></span>
+          <div class="checkbox-visual"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Card 5: Uncompleted (Pending) -->
+    <div class="card-wrapper">
+      <input type="checkbox" id="goal-5" class="goal-check">
+      <label for="goal-5" class="goal-card">
+        <span class="category-tag tag-travel">Travel</span>
+        <h3 class="card-title">Camp under the Northern Lights</h3>
+        <p class="card-desc">Experience the aurora borealis in Northern Norway under clear winter skies.</p>
+        <div class="card-footer">
+          <span class="status-text"></span>
+          <div class="checkbox-visual"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Card 6: Uncompleted (Pending) -->
+    <div class="card-wrapper">
+      <input type="checkbox" id="goal-6" class="goal-check">
+      <label for="goal-6" class="goal-card">
+        <span class="category-tag tag-career">Learning & Career</span>
+        <h3 class="card-title">Learn conversational Spanish</h3>
+        <p class="card-desc">Practice daily to achieve a solid B1 level for international travel.</p>
+        <div class="card-footer">
+          <span class="status-text"></span>
+          <div class="checkbox-visual"></div>
+        </div>
+      </label>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>
