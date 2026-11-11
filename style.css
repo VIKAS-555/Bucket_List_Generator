@@ -1,5 +1,382 @@
-*, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; min-height: 100vh; background-color: #f8fafc; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
+}
+
+
+.navbar-wrapper {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2563eb; 
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.sparkle {
+  font-size: 1.1rem;
+  color: #3b82f6;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  transition: color 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+
+.hero-section {
+  background-color: #f3f7fc; 
+  padding: 70px 20px 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.hero-pill {
+  display: inline-block;
+  background-color: #dbeafe; 
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #0b1329;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #64748b;
+  max-width: 650px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+
+.tip-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 1.5px dashed #3b82f6;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #2563eb;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.bulb-icon {
+  font-size: 1.1rem;
+}
+
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+}
+.milestone-card{
+    max-width:850px;
+    margin: 30px auto;
+    padding:28px 32px;
+    background-color:white;
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    box-shadow:0px 2px 8px rgba(0, 0, 0, 0.04);
+}
+.milestone-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:12px;
+}
+
+.milestone-title{
+    font-size:1.15rem;
+    color: #0f172a;
+}
+.milestone-acheived{
+    color:green;
+    font-size:medium;
+    font-weight: 700;
+}
+
+.progress-bar-track{
+    width:100%;
+    height:8px;
+    background-color:#e2e8f0;
+    border-radius:999px;
+    overflow: hidden;
+}
+
+.milestone-divider {
+  border: none;
+  border-top: 1px solid #edf2f7;
+  margin: 24px 0 20px 0;
+}
+
+.milestone-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-val{
+    color:green;
+    font-size:2rem;
+    font-weight: 800;
+    line-height:1;
+}
+
+.stat-lbl {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #64748b; 
+}
+
+.stat-dark {
+  color: #0f172a; 
+}
+
+.stat-green {
+  color: #16a34a; 
+}
+
+.stat-blue {
+  color: #2563eb;
+}
+.progress-bar-fill {
+  width: 40%; 
+  height: 100%;
+  background-color: #059669;
+  border-radius: 999px;
+}
+
+
+.milestones-section {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.section-header h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.click-hint {
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+
+.milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .milestones-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
+.goal-check {
+  display: none;
+}
+
+.goal-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  min-height: 200px;
+}
+
+.goal-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.category-tag {
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.tag-career { background-color: #e0e7ff; color: #4338ca; }       
+.tag-fitness { background-color: #fef3c7; color: #b45309; }      
+.tag-travel { background-color: #e0f2fe; color: #0369a1; }       
+.tag-experiences { background-color: #f3e8ff; color: #7e22ce; }   
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  white-space: pre-line;
+}
+
+.suggested-by {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0 0 16px;
+}
+
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-text::before {
+  content: "In Progress";
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.checkbox-visual {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+
+.goal-check:checked + .goal-card {
+  border-color: #16a34a;
+}
+
+.goal-check:checked + .goal-card .card-title {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.goal-check:checked + .goal-card .card-desc,
+.goal-check:checked + .goal-card .suggested-by {
+  color: #94a3b8;
+}
+
+.goal-check:checked + .goal-card .status-text::before {
+  content: "Completed ✓";
+  color: #16a34a;
+}
+
+.goal-check:checked + .goal-card .checkbox-visual {
+  background-color: #16a34a;
+  border-color: #16a34a;
+}
+
+.goal-check:checked + .goal-card .checkbox-visual::after {
+  content: "✓";
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 900;
+}
 
 .suggest-card {
   max-width: 950px;
